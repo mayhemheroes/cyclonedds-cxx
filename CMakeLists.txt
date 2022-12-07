@@ -118,7 +118,13 @@ endif()
 
 set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake/Modules")
 
+option(BUILD_DDSLIB "Build DDS lib" ON)
+
 option(BUILD_IDLLIB "Build IDL preprocessor lib" ${not_crosscompiling})
+
+if(NOT BUILD_DDSLIB AND NOT BUILD_IDLLIB)
+  message(FATAL_ERROR "Nothing to build. At least one of the options BUILD_DDSLIB and/or BUILD_IDLLIB must be ON.")
+endif()
 
 # Make it easy to enable MSVC, Clang's/gcc's analyzers
 set(ANALYZER "" CACHE STRING "Analyzer to enable on the build.")
@@ -181,7 +187,6 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin")
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib")
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib")
 
-option(BUILD_DOCS "Build documentation." OFF)
 # By default building the testing tree is enabled by including CTest, but
 # since it is not required to build the project, switch to off by default.
 option(BUILD_TESTING "Build the testing tree." OFF)
@@ -288,7 +293,5 @@ add_subdirectory(src)
 if(BUILD_EXAMPLES)
   add_subdirectory(examples)
 endif()
-
-add_subdirectory(docs)
 
 include(CMakeCPack.cmake)
