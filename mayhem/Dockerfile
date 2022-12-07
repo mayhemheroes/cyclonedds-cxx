@@ -22,9 +22,12 @@ COPY . cyclonedds-cxx
 COPY mayhem/build.sh $SRC
 WORKDIR $SRC/cyclonedds-cxx
 
-ENV FUZZING_LANGUAGE=c++ SANITIZER=address
+ENV FUZZING_LANGUAGE=c SANITIZER=address
 RUN compile
 
 FROM ubuntu 
 
 COPY --from=builder /out /
+RUN cp /dds/lib/* /usr/local/lib
+RUN cp /ddscxx/lib/* /usr/local/lib
+RUN ldconfig

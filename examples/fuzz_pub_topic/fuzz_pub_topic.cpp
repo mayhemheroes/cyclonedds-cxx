@@ -21,7 +21,7 @@
 #include "FuzzData.hpp"
 
 using namespace org::eclipse::cyclonedds;
-extern "C++" int LLVMFuzzerTestOneInput(const uint8_t *data, size_t size) {
+extern "C" int LLVMFuzzerTestOneInput(const uint8_t *data, size_t size) {
         std::cout << "=== [Publisher] Create writer." << std::endl;
 
         /* First, a domain participant is needed.
