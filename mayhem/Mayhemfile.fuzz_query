@@ -1,0 +1,7 @@
+image: ghcr.io/jon-fas/cyclonedds-cxx:latest
+project: cyclonedds-cxx
+target: fuzz_query
+duration: 120
+cmds:
+  - cmd: /ddscxx/bin/fuzz_query
+    libfuzzer: true
