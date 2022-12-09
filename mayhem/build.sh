@@ -39,6 +39,7 @@ cd ..
 mkdir -p "$OUT/dds"
 cp -vr ./build/* "$OUT/dds/"
 
+
 # move back up to cxx root and build bindings
 cd ..
 
@@ -57,3 +58,4 @@ cmake --build . --target install
 cd ..
 mkdir -p "$OUT/ddscxx"
 cp -vr ./build/* "$OUT/ddscxx/"
+
