@@ -26,3 +26,8 @@ install(
   COMPONENT dev)
 
 add_subdirectory(helloworld)
+
+if(DEFINED ENV{LIB_FUZZING_ENGINE})
+  add_subdirectory(fuzz_pub_topic)
+  add_subdirectory(fuzz_query)
+endif()

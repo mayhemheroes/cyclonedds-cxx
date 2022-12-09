@@ -1,0 +1,6 @@
+project: cyclonedds-cxx
+target: fuzz_pub_topic
+duration: 90
+cmds:
+  - cmd: /ddscxx/bin/fuzz_pub_topic
+    libfuzzer: true
