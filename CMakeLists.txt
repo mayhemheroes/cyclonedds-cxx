@@ -294,4 +294,8 @@ if(BUILD_EXAMPLES)
   add_subdirectory(examples)
 endif()
 
+if(BUILD_FUZZERS)
+	add_subdirectory(fuzz)
+endif()
+
 include(CMakeCPack.cmake)

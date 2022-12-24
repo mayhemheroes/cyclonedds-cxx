@@ -164,12 +164,13 @@ TEST_F(Query, parameters)
 }
 **/
 
+
 extern "C" int LLVMFuzzerTestOneInput(const uint8_t *data, size_t size)
 {
   // Set up
   dds::domain::DomainParticipant participant = dds::domain::DomainParticipant(org::eclipse::cyclonedds::domain::default_id());
   dds::sub::Subscriber subscriber = dds::sub::Subscriber(participant);
-  dds::topic::Topic<Space::Type1> topic = dds::topic::Topic<Space::Type1>(participant, "query_fuzz_topic");;
+  dds::topic::Topic<Space::Type1> topic = dds::topic::Topic<Space::Type1>(participant, "query_fuzz_topic");
   dds::sub::DataReader<Space::Type1> reader = dds::sub::DataReader<Space::Type1>(subscriber, topic);
   std::string expression = "long_1 = %0 and long_2 = %1 and long_3 = %2";
   const char *params_init[] = {"1", "2", "3"};

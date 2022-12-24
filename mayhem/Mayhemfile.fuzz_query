@@ -4,3 +4,5 @@ duration: 120
 cmds:
   - cmd: /ddscxx/bin/fuzz_query
     libfuzzer: true
+    sanitizer: true
+    memory_limit: 32768

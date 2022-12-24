@@ -28,7 +28,7 @@ cmake \
     -DBUILD_IDLC=ON \
     -DBUILD_TESTING=NO \
     -DBUILD_SHARED_LIBS=ON \
-    -DBUILD_EXAMPLES=ON \
+    -DBUILD_EXAMPLES=NO \
     -DENABLE_SECURITY=ON \
     -DENABLE_SSL=NO \
     -DCMAKE_INSTALL_PREFIX=/usr/local ..
@@ -49,7 +49,8 @@ cd build
 cmake \
     -DBUILD_IDLLIB=ON \
     -DBUILD_SHARED_LIBS=ON \
-    -DBUILD_EXAMPLES=ON \
+    -DBUILD_EXAMPLES=NO \
+    -DBUILD_FUZZERS=ON \
     -DCMAKE_PREFIX_PATH="/usr/local" \
     -DCMAKE_INSTALL_PREFIX=/usr/local ..
 cmake --build .
